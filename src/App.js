@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import QRCode from 'qrcode.react';
 
 function App() {
+  const [url] = useState('https://modelfact.com/wp-content/uploads/2019/10/sasha-grey-2.jpg')
+  const [token] = useState('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c')
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Abaixo o QRCode retorna o seguinte valor</h1>
+      <ul>
+        <li>URL: {url}</li>
+        <li>TOKEN: {token}</li>
+      </ul>
+      <QRCode 
+        value={`${url}?${token}`} 
+        size={256} 
+      />
+    </>
   );
 }
 
